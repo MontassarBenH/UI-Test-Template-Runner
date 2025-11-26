@@ -1,0 +1,44 @@
+{
+  "name": "ui-test-template-runner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "config:create": "tsx src/cli/wizard.ts",
+    "config:edit": "tsx src/cli/edit.ts",
+    "baseline:approve": "tsx src/cli/approve.ts",
+    "config:list": "tsx src/cli/commands.ts list",
+    "config:validate": "tsx src/cli/validate.ts",
+    "config:delete": "tsx src/cli/commands.ts delete",
+    "test:all": "tsx src/runner/test-runner.ts",
+    "test:smoke": "tsx src/runner/test-runner.ts --tags smoke",
+    "build": "tsc",
+    "dev": "tsx"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "@types/fs-extra": "^11.0.4",
+    "@types/inquirer": "^9.0.9",
+    "@types/node": "^24.10.1",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@types/pixelmatch": "^5.2.6",
+    "@types/pngjs": "^6.0.5",
+    "chalk": "^4.1.2",
+    "commander": "^14.0.2",
+    "csv-parse": "^6.1.0",
+    "dotenv": "^17.2.3",
+    "fs-extra": "^11.3.2",
+    "inquirer": "^8.2.7",
+    "ora": "^5.4.1",
+    "pixelmatch": "^7.1.0",
+    "pngjs": "^7.0.0"
+  }
+}

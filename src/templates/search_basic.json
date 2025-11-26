@@ -1,0 +1,77 @@
+{
+    "id": "search_basic",
+    "name": "Basic Search",
+    "description": "Perform a search and verify results appear.",
+    "requiredParameters": [
+        {
+            "name": "url",
+            "description": "The page URL",
+            "type": "string",
+            "example": "https://example.com"
+        },
+        {
+            "name": "searchInputSelector",
+            "description": "Selector for the search input field",
+            "type": "string",
+            "example": "input[name='q']"
+        },
+        {
+            "name": "searchButtonSelector",
+            "description": "Selector for the search button (optional if Enter works, but good to have)",
+            "type": "string",
+            "example": "button.search-btn"
+        },
+        {
+            "name": "searchTerm",
+            "description": "The term to search for",
+            "type": "string",
+            "example": "laptop"
+        },
+        {
+            "name": "resultSelector",
+            "description": "Selector for a result item or container",
+            "type": "string",
+            "example": ".search-results .item"
+        },
+        {
+            "name": "expectedResultText",
+            "description": "Text expected to be found in the results",
+            "type": "string",
+            "example": "laptop"
+        }
+    ],
+    "steps": [
+        {
+            "action": "goto",
+            "params": [
+                "{{url}}"
+            ]
+        },
+        {
+            "action": "type",
+            "params": [
+                "{{searchInputSelector}}",
+                "{{searchTerm}}"
+            ]
+        },
+        {
+            "action": "click",
+            "params": [
+                "{{searchButtonSelector}}"
+            ]
+        },
+        {
+            "action": "wait",
+            "params": [
+                "1000"
+            ]
+        },
+        {
+            "action": "expect_text",
+            "params": [
+                "{{resultSelector}}",
+                "{{expectedResultText}}"
+            ]
+        }
+    ]
+}

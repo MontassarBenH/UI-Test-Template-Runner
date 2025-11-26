@@ -1,0 +1,35 @@
+{
+    "id": "performance_basic",
+    "name": "Basic Performance Test",
+    "description": "Measure API response time over multiple iterations.",
+    "requiredParameters": [
+        {
+            "name": "url",
+            "description": "The API endpoint URL",
+            "type": "string",
+            "example": "https://jsonplaceholder.typicode.com/posts/1"
+        },
+        {
+            "name": "method",
+            "description": "HTTP Method",
+            "type": "string",
+            "example": "GET"
+        },
+        {
+            "name": "iterations",
+            "description": "Number of requests to make",
+            "type": "number",
+            "example": "20"
+        }
+    ],
+    "steps": [
+        {
+            "action": "measure_performance",
+            "params": [
+                "{{method}}",
+                "{{url}}",
+                "{{iterations}}"
+            ]
+        }
+    ]
+}

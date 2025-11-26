@@ -1,0 +1,39 @@
+{
+    "id": "visual_basic",
+    "name": "Visual Regression Test",
+    "description": "Compare a screenshot of the page against a baseline.",
+    "requiredParameters": [
+        {
+            "name": "url",
+            "description": "The URL to visit",
+            "type": "string",
+            "example": "https://example.com"
+        },
+        {
+            "name": "snapshotName",
+            "description": "Unique name for the snapshot (e.g. login-page)",
+            "type": "string",
+            "example": "login-page"
+        }
+    ],
+    "steps": [
+        {
+            "action": "goto",
+            "params": [
+                "{{url}}"
+            ]
+        },
+        {
+            "action": "wait",
+            "params": [
+                "1000"
+            ]
+        },
+        {
+            "action": "compare_screenshot",
+            "params": [
+                "{{snapshotName}}"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "id": "plugin_test_template",
+    "name": "Plugin Test Template",
+    "description": "Template to test custom plugins",
+    "requiredParameters": [
+        {
+            "name": "waitTime",
+            "description": "Time to wait in ms",
+            "example": "1000"
+        }
+    ],
+    "steps": [
+        {
+            "action": "custom_wait",
+            "params": [
+                "{{waitTime}}"
+            ]
+        }
+    ]
+}

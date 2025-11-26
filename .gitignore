@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Environment variables
+.env
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Test Reports
+reports/
+test-results/
+
+# Screenshots
+# Ignore failure screenshots and diffs
+screenshots/baseline
+screenshots/actual/
+screenshots/diff/
+screenshots/fail-*.png
+screenshots/diff-*.png
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Tests
+/configs

@@ -1,0 +1,10 @@
+[
+    {
+        "username": "user1",
+        "expectedText": "Welcome user1"
+    },
+    {
+        "username": "user2",
+        "expectedText": "Welcome user2"
+    }
+]

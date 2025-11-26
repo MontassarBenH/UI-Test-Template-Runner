@@ -1,0 +1,108 @@
+{
+    "id": "login_basic",
+    "name": "Basic Login",
+    "description": "A standard login flow: navigate, enter credentials, click submit, verify success.",
+    "requiredParameters": [
+        {
+            "name": "url",
+            "description": "The login page URL",
+            "type": "string",
+            "example": "https://example.com/login"
+        },
+        {
+            "name": "usernameSelector",
+            "description": "CSS/XPath selector for the username input",
+            "type": "string",
+            "example": "#username"
+        },
+        {
+            "name": "passwordSelector",
+            "description": "CSS/XPath selector for the password input",
+            "type": "string",
+            "example": "#password"
+        },
+        {
+            "name": "submitButtonSelector",
+            "description": "CSS/XPath selector for the submit button",
+            "type": "string",
+            "example": "button[type='submit']"
+        },
+        {
+            "name": "username",
+            "description": "The username to type",
+            "type": "string",
+            "example": "testuser"
+        },
+        {
+            "name": "password",
+            "description": "The password to type",
+            "type": "string",
+            "example": "secret123"
+        },
+        {
+            "name": "successSelector",
+            "description": "Selector for an element that appears after successful login",
+            "type": "string",
+            "example": ".dashboard-welcome"
+        },
+        {
+            "name": "expectedText",
+            "description": "Text expected to be visible in the success element",
+            "type": "string",
+            "example": "Welcome back"
+        },
+        {
+            "name": "snapshotName",
+            "description": "Optional: Name for visual regression snapshot (leave empty to skip)",
+            "type": "string",
+            "example": "login-success"
+        }
+    ],
+    "steps": [
+        {
+            "action": "goto",
+            "params": [
+                "{{url}}"
+            ]
+        },
+        {
+            "action": "type",
+            "params": [
+                "{{usernameSelector}}",
+                "{{username}}"
+            ]
+        },
+        {
+            "action": "type",
+            "params": [
+                "{{passwordSelector}}",
+                "{{password}}"
+            ]
+        },
+        {
+            "action": "click",
+            "params": [
+                "{{submitButtonSelector}}"
+            ]
+        },
+        {
+            "action": "wait",
+            "params": [
+                "3000"
+            ]
+        },
+        {
+            "action": "expect_text",
+            "params": [
+                "{{successSelector}}",
+                "{{expectedText}}"
+            ]
+        },
+        {
+            "action": "compare_screenshot",
+            "params": [
+                "{{snapshotName}}"
+            ]
+        }
+    ]
+}

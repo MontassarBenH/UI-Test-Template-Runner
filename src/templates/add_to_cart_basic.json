@@ -1,0 +1,64 @@
+{
+    "id": "add_to_cart_basic",
+    "name": "Add to Cart",
+    "description": "Navigate to a product page, add item to cart, and verify success.",
+    "requiredParameters": [
+        {
+            "name": "url",
+            "description": "The URL of the specific product page",
+            "type": "string",
+            "example": "https://example.com/product/apple"
+        },
+        {
+            "name": "addToCartButtonSelector",
+            "description": "Selector for the 'Add to Cart' button",
+            "type": "string",
+            "example": "button.add-to-cart"
+        },
+        {
+            "name": "successSelector",
+            "description": "Selector for the success message or cart badge",
+            "type": "string",
+            "example": ".toast-success"
+        },
+        {
+            "name": "expectedText",
+            "description": "Text to expect (e.g. 'Added to cart' or '1')",
+            "type": "string",
+            "example": "Item added to cart"
+        }
+    ],
+    "steps": [
+        {
+            "action": "goto",
+            "params": [
+                "{{url}}"
+            ]
+        },
+        {
+            "action": "wait",
+            "params": [
+                "1000"
+            ]
+        },
+        {
+            "action": "click",
+            "params": [
+                "{{addToCartButtonSelector}}"
+            ]
+        },
+        {
+            "action": "wait",
+            "params": [
+                "500"
+            ]
+        },
+        {
+            "action": "expect_text",
+            "params": [
+                "{{successSelector}}",
+                "{{expectedText}}"
+            ]
+        }
+    ]
+}

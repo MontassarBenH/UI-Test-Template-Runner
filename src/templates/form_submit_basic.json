@@ -1,0 +1,159 @@
+{
+    "id": "form_submit_basic",
+    "name": "Form Submission (Flexible)",
+    "description": "Fill out a form with up to 5 fields and submit it. Supports optional navigation before filling.",
+    "requiredParameters": [
+        {
+            "name": "url",
+            "description": "The page URL",
+            "type": "string",
+            "example": "https://example.com/contact"
+        },
+        {
+            "name": "navigateSelector",
+            "description": "Optional: Selector to click before filling form (e.g., 'Submit Claim' button)",
+            "type": "string",
+            "example": "[data-testid='open-form']"
+        },
+        {
+            "name": "field1Selector",
+            "description": "Selector for the first field",
+            "type": "string",
+            "example": "#name"
+        },
+        {
+            "name": "field1Value",
+            "description": "Value for the first field",
+            "type": "string",
+            "example": "John Doe"
+        },
+        {
+            "name": "field2Selector",
+            "description": "Selector for the second field",
+            "type": "string",
+            "example": "#email"
+        },
+        {
+            "name": "field2Value",
+            "description": "Value for the second field",
+            "type": "string",
+            "example": "john@example.com"
+        },
+        {
+            "name": "field3Selector",
+            "description": "Optional: Selector for the third field",
+            "type": "string",
+            "example": "#phone"
+        },
+        {
+            "name": "field3Value",
+            "description": "Optional: Value for the third field",
+            "type": "string",
+            "example": "555-0123"
+        },
+        {
+            "name": "field4Selector",
+            "description": "Optional: Selector for the fourth field",
+            "type": "string",
+            "example": "#address"
+        },
+        {
+            "name": "field4Value",
+            "description": "Optional: Value for the fourth field",
+            "type": "string",
+            "example": "123 Main St"
+        },
+        {
+            "name": "field5Selector",
+            "description": "Optional: Selector for the fifth field",
+            "type": "string",
+            "example": "#comments"
+        },
+        {
+            "name": "field5Value",
+            "description": "Optional: Value for the fifth field",
+            "type": "string",
+            "example": "Hello world"
+        },
+        {
+            "name": "formSubmitSelector",
+            "description": "Selector for the submit button",
+            "type": "string",
+            "example": "button[type='submit']"
+        },
+        {
+            "name": "formSuccessSelector",
+            "description": "Selector for the success message",
+            "type": "string",
+            "example": ".alert-success"
+        },
+        {
+            "name": "formExpectedText",
+            "description": "Expected success text",
+            "type": "string",
+            "example": "Thank you"
+        }
+    ],
+    "steps": [
+        {
+            "action": "goto",
+            "params": [
+                "{{url}}"
+            ]
+        },
+        {
+            "action": "click",
+            "params": [
+                "{{navigateSelector}}"
+            ]
+        },
+        {
+            "action": "type",
+            "params": [
+                "{{field1Selector}}",
+                "{{field1Value}}"
+            ]
+        },
+        {
+            "action": "type",
+            "params": [
+                "{{field2Selector}}",
+                "{{field2Value}}"
+            ]
+        },
+        {
+            "action": "type",
+            "params": [
+                "{{field3Selector}}",
+                "{{field3Value}}"
+            ]
+        },
+        {
+            "action": "type",
+            "params": [
+                "{{field4Selector}}",
+                "{{field4Value}}"
+            ]
+        },
+        {
+            "action": "type",
+            "params": [
+                "{{field5Selector}}",
+                "{{field5Value}}"
+            ]
+        },
+        {
+            "action": "click",
+            "params": [
+                "{{formSubmitSelector}}"
+            ]
+        },
+        {
+            "action": "expect_text",
+            "params": [
+                "{{formSuccessSelector}}",
+                "{{formExpectedText}}"
+            ]
+        }
+    ]
+}

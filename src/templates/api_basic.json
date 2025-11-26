@@ -1,0 +1,59 @@
+{
+    "id": "api_basic",
+    "name": "Basic API Request",
+    "description": "Make an HTTP request and verify the response status and body.",
+    "requiredParameters": [
+        {
+            "name": "url",
+            "description": "The API endpoint URL",
+            "type": "string",
+            "example": "https://jsonplaceholder.typicode.com/posts/1"
+        },
+        {
+            "name": "method",
+            "description": "HTTP Method (GET, POST, PUT, DELETE)",
+            "type": "string",
+            "example": "GET"
+        },
+        {
+            "name": "body",
+            "description": "Request body (JSON string, optional for GET)",
+            "type": "string",
+            "example": "{ \"title\": \"foo\" }"
+        },
+        {
+            "name": "expectedStatus",
+            "description": "Expected HTTP status code",
+            "type": "number",
+            "example": "200"
+        },
+        {
+            "name": "expectedBodyContains",
+            "description": "Text expected to be in the response body",
+            "type": "string",
+            "example": "userId"
+        }
+    ],
+    "steps": [
+        {
+            "action": "request",
+            "params": [
+                "{{method}}",
+                "{{url}}",
+                "{{body}}"
+            ]
+        },
+        {
+            "action": "expect_status",
+            "params": [
+                "{{expectedStatus}}"
+            ]
+        },
+        {
+            "action": "expect_response_body",
+            "params": [
+                "{{expectedBodyContains}}"
+            ]
+        }
+    ]
+}
